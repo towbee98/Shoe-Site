@@ -1,0 +1,25 @@
+{
+  "name": "shoe-ordering-site",
+  "version": "1.0.0",
+  "description": "A site where people can order different types of shoes ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "shoe ordering site"
+  },
+  "keywords": [
+    "shoes",
+    "sandals",
+    "canvas"
+  ],
+  "author": "tobi",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "nodemon": "^2.0.4"
+  }
+}
