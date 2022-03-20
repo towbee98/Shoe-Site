@@ -78,9 +78,11 @@ class Directory extends React.Component {
     return (
       <div className="directory-menu">
         {this.state.shoeItems.map((item) => {
+          //console.log(item.id);
           return (
             <MenuItem
               key={item.id}
+              id={item.id}
               title={item.title}
               price={item.price}
               image={item.image}
