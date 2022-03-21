@@ -1,0 +1,14 @@
+.preview {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+.collection-preview {
+  margin: 30px 30px 50px 30px;
+}
+.title {
+  font-size: large;
+}
