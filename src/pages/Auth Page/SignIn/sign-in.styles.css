@@ -1,0 +1,39 @@
+.sign-in {
+  width: 25vw;
+  box-shadow: 5px 5px 5px 5px rgb(238, 238, 238);
+  padding: 35px;
+  margin: auto;
+  margin-top: 40px;
+  border-radius: 15px;
+}
+.others {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: small;
+  font-weight: bold;
+  align-items: center;
+}
+.go-to-sign-up {
+  margin-top: 25px;
+  font-size: small;
+}
+
+.go-to-sign-up:hover {
+  font-weight: 500;
+}
+.password-container {
+  position: relative;
+}
+.password-container div {
+  width: 100%;
+}
+.password-visibility {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.password-visibility:hover {
+  cursor: pointer;
+}

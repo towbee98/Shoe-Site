@@ -19,7 +19,7 @@ const MenuItem = (props) => {
           className="shoe-image"
         ></div>
         <div className="details">
-          <div className="title">{props.title}</div>
+          <div className="name">{props.title}</div>
           <span className="price">
             {props.currency}
             {props.price}

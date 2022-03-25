@@ -1,10 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-import "./collection.item.component.css";
+import "./collection.item.styles.css";
 
 const CollectionItem = ({ id, name, price, image }) => {
+  let navigate = useNavigate();
   return (
-    <div className="collection-item" key={id}>
+    <div
+      className="collection-item"
+      key={id}
+      onClick={() => {
+        navigate(`../sneakers/${id}`, { replace: false });
+      }}
+    >
       <div
         className="image"
         style={{

@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./preview.collection.component.css";
+import "./preview.collection.styles.css";
 import CollectionItem from "../collection-item/collection.item.component";
 
 const CollectionPreview = ({ title, items }) => {
@@ -13,6 +13,7 @@ const CollectionPreview = ({ title, items }) => {
           .map((item) => (
             <CollectionItem
               key={item.id}
+              id={item.id}
               name={item.title}
               price={item.price}
               image={item.image}
