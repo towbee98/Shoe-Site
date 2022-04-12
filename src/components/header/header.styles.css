@@ -13,13 +13,25 @@
   padding: 0;
 }
 
-a {
+.options {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 10px;
+}
+.option {
+  cursor: pointer;
+}
+a,
+.option {
   text-decoration: none;
   margin-right: 10px;
   color: black;
   font-weight: 500;
 }
 
-a:hover {
+.option:hover {
   font-weight: bold;
 }

@@ -1,11 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import { ReactComponent as Logo } from "../../../assets/icons8-google.svg";
+import {
+  signInWithGoogle,
+  LoginWithUserCredentials,
+} from "../../../firebase/firebase.utils";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
 import "./sign-in.styles.css";
 import FormInput from "../../../components/form-input/form-input.component";
 import SubmitBtn from "../../../components/custom-button/custom-button.component";
+import Message from "../../../components/server-message/message.component";
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -14,6 +20,8 @@ class SignIn extends React.Component {
       email: "",
       password: "",
       passwordVisibilty: false,
+      error: false,
+      errorMessage: "",
     };
   }
   handlePasswordVisibilty = (e) => {
@@ -21,17 +29,23 @@ class SignIn extends React.Component {
     this.setState({ passwordVisibilty: !this.state.passwordVisibilty });
   };
 
-  handleMouseDownPassword = (event) => {
+  // handleMouseDownPassword = (event) => {
+  //   event.preventDefault();
+  // };
+
+  handleSubmit = async (event) => {
     event.preventDefault();
+    const result = await LoginWithUserCredentials(this.state);
+    result.name === "FirebaseError"
+      ? this.setState({
+          email: "",
+          password: "",
+          errorMessage: `${result.message}`,
+          error: !this.state.error,
+        })
+      : this.setState({ email: "", password: "" });
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const email = this.state.email;
-    const password = this.state.password;
-    console.log(email, password);
-    this.setState({ Email: "", Password: "" });
-  };
   handleChange = (event) => {
     const { value, name } = event.target;
     this.setState({ [name]: value });
@@ -39,6 +53,12 @@ class SignIn extends React.Component {
   render() {
     return (
       <div className="sign-in">
+        {this.state.error ? (
+          <Message
+            errorMessage={this.state.errorMessage}
+            error={this.state.error}
+          />
+        ) : null}
         <h2>Sign In</h2>
         <span>You have an existing account</span>
         <form onSubmit={this.handleSubmit}>
@@ -93,7 +113,13 @@ class SignIn extends React.Component {
           <SubmitBtn type="submit" onSubmit={this.handleSubmit}>
             Sign in
           </SubmitBtn>
-          <SubmitBtn type="submit" secondary onSubmit={this.handleSubmit}>
+          <SubmitBtn
+            type="submit"
+            secondary
+            onClick={() => {
+              signInWithGoogle(this.state);
+            }}
+          >
             <Logo /> <span>Sign in with Google</span>
           </SubmitBtn>
           <Link className="go-to-sign-up" to={"/signUp"}>

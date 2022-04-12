@@ -1,0 +1,7 @@
+.response-message {
+  background-color: rgb(194, 99, 99);
+  color: azure;
+  font-weight: bold;
+  font-size: small;
+  padding: 5px;
+}

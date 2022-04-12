@@ -11,7 +11,6 @@ const FormInput = ({ handleChange, label, type, ...otherProps }) => {
         className="form-input"
         type={type}
         onChange={handleChange}
-        //  {type=="password" && label=="text"?<MdVisibility/>:<MdVisibilityOff/>}
         {...otherProps}
       />
       {label ? <label className="form-input-label">{label}</label> : null}

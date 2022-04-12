@@ -4,9 +4,8 @@
 }
 
 .form-input {
-  background-color: white;
   display: block;
-  background: none;
+  background: none !important;
   font-size: 18px;
   width: 100%;
   border: none;
@@ -25,9 +24,17 @@
   pointer-events: none;
   transition: 0.5s;
 }
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill:valid,
+.form-input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
 
 .form-input:focus ~ .form-input-label,
-.form-input:valid ~ .form-input-label {
+.form-input:valid ~ .form-input-label,
+.form-input:active ~ .form-input-label,
+.form-input:-webkit-autofill ~ .form-input-label {
   transform: translateY(-20px);
   font-size: 11px;
   letter-spacing: 1px;
